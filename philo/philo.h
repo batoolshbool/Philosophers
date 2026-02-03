@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:07:17 by bshbool           #+#    #+#             */
-/*   Updated: 2026/02/03 17:08:52 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:24:48 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ struct s_philo
 	t_table	*table;
 };
 
+/*UTILS*/
 //exit_error();
+int	ft_isdigit(char *str);
 
+/*MAIN*/
+int is_valid_input(char **argv);
 
 #endif
 

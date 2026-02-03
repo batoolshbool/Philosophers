@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:01:15 by bshbool           #+#    #+#             */
-/*   Updated: 2026/02/03 17:02:57 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:24:11 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,3 +14,16 @@
 
 //exit_error();
 
+int	ft_isdigit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}

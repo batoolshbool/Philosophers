@@ -6,22 +6,42 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 16:18:47 by bshbool           #+#    #+#             */
-/*   Updated: 2026/02/03 17:14:42 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:22:32 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int is_valid_input(char **argv)
-{
-	
 	//nb_philo(argv[1]): unsigned int
 	//die_time(argv[2]): unsigned long
 	//eat_time(argv[3]): unsigned long
     //sleep_time(argv[4]): unsigned long
 	//must_eat(optional - argv[5]): int
+
+int is_valid_input(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while(argv[i])
+	{
+		if(!ft_isdigit(argv[i]))
+			return (0);
+		else if()
+	}
 	return (1);
 }
+
+/*Each argument:
+	contains only digits
+	represents a positive integer
+Converted values are:
+	nb_philo > 0
+	die_time > 0
+	eat_time > 0
+	sleep_time > 0
+	must_eat > 0 (if provided)
+No signs (+ / -), no spaces, no empty strings.*/
 
 int	main(int argc, char **argv)
 {
