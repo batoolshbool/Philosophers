@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 16:18:47 by bshbool           #+#    #+#             */
-/*   Updated: 2026/02/03 17:22:32 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:26:21 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int is_valid_input(char **argv)
 		if(!ft_isdigit(argv[i]))
 			return (0);
 		else if()
+		i++;
 	}
 	return (1);
 }
