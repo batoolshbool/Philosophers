@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:07:17 by bshbool           #+#    #+#             */
-/*   Updated: 2026/02/03 16:25:12 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:08:52 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_table
     unsigned int	nb_philo;
     unsigned long	die_time;
     unsigned long	eat_time;
-    unsigned long 	leep_time;
+    unsigned long 	sleep_time;
 	unsigned long	start_time;
     int 			must_eat;
     int 			died_end;
@@ -47,6 +47,8 @@ struct s_philo
 	pthread_mutex_t	*right_fork;
 	t_table	*table;
 };
+
+//exit_error();
 
 
 #endif
