@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:06:37 by bshbool           #+#    #+#             */
-/*   Updated: 2026/04/25 14:23:18 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/04/25 15:38:04 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	precise_sleep(unsigned long time, t_table *table)
 	{
 		if (get_time() - start >= time)
 			break ;
-		usleep(500);
+		usleep(100);
 	}
 }
 
@@ -87,7 +87,7 @@ void	*monitor_routine(void *data)
 		}
 		if (check_meals(table, finished))
 			return (NULL);
-		usleep(500);
+		usleep(100);
 	}
 	return (NULL);
 }

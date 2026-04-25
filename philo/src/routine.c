@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:06:24 by bshbool           #+#    #+#             */
-/*   Updated: 2026/04/25 14:17:39 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/04/25 15:52:24 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,32 @@ int	take_forks(t_philo *philo)
 	return (0);
 }
 
+// void	eat_sleep_think(t_philo *philo)
+// {
+// 	pthread_mutex_lock(&philo->table->state);
+// 	philo->last_meal_ts = get_time();
+// 	philo->meals++;
+// 	pthread_mutex_unlock(&philo->table->state);
+// 	print_status(philo, "is eating");
+// 	precise_sleep(philo->table->eat_time, philo->table);
+// 	pthread_mutex_unlock(philo->left_fork);
+// 	pthread_mutex_unlock(philo->right_fork);
+// 	print_status(philo, "is sleeping");
+// 	usleep(philo->table->sleep_time * 1000);
+// 	print_status(philo, "is thinking");
+// }
+
 void	eat_sleep_think(t_philo *philo)
 {
+	print_status(philo, "is eating");
 	pthread_mutex_lock(&philo->table->state);
 	philo->last_meal_ts = get_time();
 	philo->meals++;
 	pthread_mutex_unlock(&philo->table->state);
-	print_status(philo, "is eating");
 	precise_sleep(philo->table->eat_time, philo->table);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
 	print_status(philo, "is sleeping");
-	usleep(philo->table->sleep_time * 1000);
+	precise_sleep(philo->table->sleep_time, philo->table);
 	print_status(philo, "is thinking");
 }
