@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:11:28 by bshbool           #+#    #+#             */
-/*   Updated: 2026/04/25 15:52:42 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/04/25 16:02:29 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ void	*philo_thread(void *data)
 	if (philo->id % 2 == 0)
 		usleep(1000);
 	while (!is_finished(philo->table))
-		philo_action(philo);
+	{
+		if (!take_forks(philo))
+			eat_sleep_think(philo);
+		usleep(100);
+	}
 	return (NULL);
 }
