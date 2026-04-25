@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:11:28 by bshbool           #+#    #+#             */
-/*   Updated: 2026/04/25 16:02:29 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/04/25 16:03:15 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,4 @@ void	*philo_thread(void *data)
 	}
 	return (NULL);
 }
+
