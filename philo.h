@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:07:17 by bshbool           #+#    #+#             */
-/*   Updated: 2026/04/25 14:16:39 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/06/15 20:02:18 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void					init_mutexes(t_table *table);
 void					init_philos(t_table *table);
 
 /* routine */
+void					think(t_philo *philo);
 int						is_finished(t_table *table);
 void					print_status(t_philo *philo, char *msg);
-void					philo_action(t_philo *philo);
 void					*philo_thread(void *data);
 void					*monitor_routine(void *data);
 void					eat_sleep_think(t_philo *philo);
@@ -79,8 +79,9 @@ int						take_forks(t_philo *philo);
 
 /* process */
 void					one_philo(t_table *table);
-void					thread_control(pthread_t *thread,
-							void *(*routine)(void *), void *arg,
+int						thread_control(pthread_t *thread,
+							void *(*routine)(void *),
+							void *arg,
 							t_thread_op op);
 void					process_philo(t_table *table);
 void					precise_sleep(unsigned long time, t_table *table);

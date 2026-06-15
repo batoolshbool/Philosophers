@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:06:37 by bshbool           #+#    #+#             */
-/*   Updated: 2026/04/25 15:38:04 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/06/15 19:59:29 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	check_death(t_table *table, int i)
 
 	pthread_mutex_lock(&table->state);
 	died = 0;
-	if (get_time() - table->philos[i].last_meal_ts > table->die_time)
+	if (get_time() - table->philos[i].last_meal_ts >= table->die_time)
 	{
 		table->died_end = 1;
 		died = 1;
@@ -65,9 +65,9 @@ static int	check_meals(t_table *table, unsigned int finished)
 
 void	*monitor_routine(void *data)
 {
-	t_table				*table;
-	unsigned int		i;
-	unsigned int		finished;
+	t_table			*table;
+	unsigned int	i;
+	unsigned int	finished;
 
 	table = (t_table *)data;
 	while (!is_finished(table))
