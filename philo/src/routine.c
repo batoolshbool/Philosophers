@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:06:24 by bshbool           #+#    #+#             */
-/*   Updated: 2026/06/15 20:35:48 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/06/16 17:07:19 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ void	think(t_philo *philo)
 		think_time = (t_die - t_eat - t_slp) / 2;
 	else
 		think_time = 0;
-	if (think_time < 1)
-		think_time = 1;
-	precise_sleep(think_time, philo->table);
+	if (think_time > 0)
+		precise_sleep(think_time, philo->table);
 }
 
 static void	get_forks(t_philo *philo, pthread_mutex_t **first,
