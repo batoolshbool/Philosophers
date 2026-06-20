@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:06:04 by bshbool           #+#    #+#             */
-/*   Updated: 2026/06/16 17:09:05 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/06/20 15:20:31 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	create_philo_threads(t_table *table)
 			pthread_mutex_unlock(&table->state);
 			return (1);
 		}
-		usleep(10000);
+		usleep(100);
 		i++;
 	}
 	return (0);

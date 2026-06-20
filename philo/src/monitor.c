@@ -6,7 +6,7 @@
 /*   By: bshbool <bshbool@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 14:06:37 by bshbool           #+#    #+#             */
-/*   Updated: 2026/06/16 17:07:47 by bshbool          ###   ########.fr       */
+/*   Updated: 2026/06/20 15:12:12 by bshbool          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,46 +21,42 @@ void	precise_sleep(unsigned long time, t_table *table)
 	{
 		if (get_time() - start >= time)
 			break ;
-		usleep(200);
+		usleep(50);
 	}
 }
 
 static int	check_death(t_table *table, int i)
 {
-	int	died;
+	unsigned long	last_meal;
 
 	pthread_mutex_lock(&table->state);
-	died = 0;
-	if (get_time() - table->philos[i].last_meal_ts >= table->die_time)
-	{
-		table->died_end = 1;
-		died = 1;
-	}
+	last_meal = table->philos[i].last_meal_ts;
 	pthread_mutex_unlock(&table->state);
-	if (died)
+	if (get_time() - last_meal >= table->die_time)
 	{
+		pthread_mutex_lock(&table->state);
+		table->died_end = 1;
+		pthread_mutex_unlock(&table->state);
 		pthread_mutex_lock(&table->print);
 		printf("%lu %d died\n",
 			get_time() - table->start_time,
 			table->philos[i].id);
 		pthread_mutex_unlock(&table->print);
+		return (1);
 	}
-	return (died);
+	return (0);
 }
 
 static int	check_meals(t_table *table, unsigned int finished)
 {
-	int	stop;
-
-	stop = 0;
 	if (table->must_eat != -1 && finished == table->nb_philo)
 	{
 		pthread_mutex_lock(&table->state);
 		table->died_end = 1;
 		pthread_mutex_unlock(&table->state);
-		stop = 1;
+		return (1);
 	}
-	return (stop);
+	return (0);
 }
 
 void	*monitor_routine(void *data)
@@ -87,7 +83,7 @@ void	*monitor_routine(void *data)
 		}
 		if (check_meals(table, finished))
 			return (NULL);
-		precise_sleep(1, table);
+		usleep(200);
 	}
 	return (NULL);
 }
